@@ -1,2 +1,28 @@
 # api-call-examples
-Some examples form api calls inbest api
+Some examples for calls Inbest API
+
+### Login
+
+##### Login with Facebook
+HTTP POST
+Url: "https://inbest-app-dev.firebaseapp.com/api/v1/login"
+Data: 
+```
+{
+type: 'facebook',
+accessToken: 'user access token'
+}
+```
+Response: 
+```
+SUCCESS: 
+{success: true, token: 'token'}
+ERROR: 
+{success: false, message: 'message'}
+```
+
+Full example in login.html and login.js
+
+##### Login with Google
+ 
+

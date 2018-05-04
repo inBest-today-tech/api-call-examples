@@ -1,0 +1,33 @@
+
+.login-btn {
+    margin-bottom: 20px;
+    color: white;
+    width: 200px;
+    padding: 15px;
+}
+.login-btn.btn-google {
+    background: #e0483a;
+}
+
+.login-btn.btn-facebook {
+    background: #3b5999;
+}
+
+.login-btn.btn-twitter {
+    background: #1da1f3;
+}
+
+.login-btn i {
+    position: absolute;
+    width: 40px;
+    left: 15px;
+    font-size: 20px;
+    padding-right: 13px;
+    line-height: 30px;
+    border-right: 1px solid lightgray;
+}
+
+.token{
+    word-wrap: break-word;
+    width:100%;
+}
