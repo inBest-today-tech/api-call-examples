@@ -3,7 +3,7 @@ Some examples for calls Inbest API
 
 ### Login
 
-##### Login with Facebook
+##### Login with Facebook (And Register)
 HTTP POST
 Url: "https://inbest-app-dev.firebaseapp.com/api/v1/login"
 Data: 
@@ -23,6 +23,6 @@ ERROR:
 
 Full example in login.html and login.js
 
-##### Login with Google
+##### Login with Google (And Register)
  
 
