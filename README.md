@@ -1,6 +1,6 @@
 # api-call-examples
 Some examples for calls Inbest API
-
+HOST: "http://inbest-app-dev.firebaseapp.buy.com"
 ### Login
 
 ##### Login with Facebook (And Register)
