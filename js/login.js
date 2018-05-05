@@ -24,6 +24,29 @@ var login = (function () {
         });
     }
 
+    function doLoginGoogle(token) {
+        console.log('do login google');
+        console.log(token);
+        var login = {
+            type: 'google',
+            accessToken: token
+        };
+        $.ajax({
+            type: "POST",
+            url: loginUrl,
+            data: login,
+            success: function (response) {
+                var token = response['token'];
+                $('.js-response-call').text(token);
+            },
+            error: function (response) {
+                var responseJSON = response['responseJSON'];
+                $('.js-response-call').text(responseJSON['message']);
+
+            }
+        });
+    }
+
     function init() {
         $('.js-login-social-facebook').on('click', function () {
             FB.getLoginStatus(function (loginStatus) {
@@ -44,6 +67,17 @@ var login = (function () {
 
         $('.js-login-social-google').on('click', function () {
             console.log('Login google');
+            var authInstance = gapi.auth2.getAuthInstance();
+            if (authInstance.isSignedIn.get()) {
+                var token = authInstance.currentUser.get().getAuthResponse().id_token;
+                doLoginGoogle(token);
+            } else {
+                authInstance.signIn()
+                    .then(function () {
+                        var token = authInstance.currentUser.get().getAuthResponse().id_token;
+                        doLoginGoogle(token);
+                    });
+            }
         });
     }
 

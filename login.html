@@ -10,6 +10,18 @@
     <link href="css/base.css" rel="stylesheet"/>
     <link href="css/login.css" rel="stylesheet"/>
 </head>
+<script src="https://apis.google.com/js/api.js"></script>
+<script>
+    function start() {
+        gapi.client.init({
+            'apiKey': 'AIzaSyAUWqQ1eAUkKxhwn75KJ68jWk4f5sPK4k0',
+            'clientId': '668810797607-sh049dj3qvfbmb2oo8dvvj2a6ltjnib7.apps.googleusercontent.com',
+            'scope': 'profile'
+        });
+    };
+    gapi.load('client', start);
+</script>
+
 <script>
     window.fbAsyncInit = function () {
         FB.init({
