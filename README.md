@@ -1,6 +1,7 @@
 # api-call-examples
 Some examples for calls Inbest API
 HOST: "http://inbest-app-dev.firebaseapp.buy.com"
+
 ### Login
 
 ##### Login with Facebook (And Register)
@@ -37,6 +38,18 @@ Full example in login.html and login.js
  ```
  SUCCESS: 
  {success: true, token: 'token'}
+ ERROR: 
+ {success: false, message: 'message'}
+ ```
+
+### Get Profile
+HTTP GET
+Url: "https://inbest-app-dev.firebaseapp.com/api/v1/profile"
+Header: "Authorization Bearer TokenFromLogin"
+Response:
+ ```
+ SUCCESS: 
+ {success: true, profile: 'profile json'}
  ERROR: 
  {success: false, message: 'message'}
  ```

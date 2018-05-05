@@ -4,45 +4,12 @@
     <meta charset="UTF-8"/>
     <meta NAME="robots" CONTENT="noindex, nofollow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inbest API Call Examples - Login</title>
+    <title>Inbest API Call Examples - Get profile</title>
     <link href="https://fonts.googleapis.com/css?family=Barlow:800|Muli:400,800" rel="stylesheet">
     <link href="css/lib/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="css/base.css" rel="stylesheet"/>
-    <link href="css/login.css" rel="stylesheet"/>
+    <link href="css/getProfile.css" rel="stylesheet"/>
 </head>
-<script src="https://apis.google.com/js/api.js"></script>
-<script>
-    function start() {
-        gapi.client.init({
-            'apiKey': 'AIzaSyAUWqQ1eAUkKxhwn75KJ68jWk4f5sPK4k0',
-            'clientId': '668810797607-sh049dj3qvfbmb2oo8dvvj2a6ltjnib7.apps.googleusercontent.com',
-            'scope': 'profile'
-        });
-    };
-    gapi.load('client', start);
-</script>
-
-<script>
-    window.fbAsyncInit = function () {
-        FB.init({
-            appId: '140803816508803',
-            xfbml: true,
-            version: 'v2.10'
-        });
-        FB.AppEvents.logPageView();
-    };
-
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-            return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
 <body>
 <header class="custom-header">
     <div class="container">
@@ -70,21 +37,28 @@
             <div class="col-md-12 col-sm-12 col-xs-12 text-center">
                 <h2 class="title center-col alt-font" style="margin-top: 25px;">
                     <p>
-                        <b>Login Example</b>
+                        <b>Get Profile Example</b>
                     </p>
                 </h2>
             </div>
             <div class="box-container col-md-offset-2 col-md-8 col-sm-offset-2 col-sm-8 col-xs-offset-2 col-xs-8"
                  style="margin-top: 20px;padding-top: 30px;">
                 <div class="col-md-12">
-                    <button class="btn login-btn btn-facebook js-login-social-facebook">
-                        Login Facebook
-                    </button>
-                    <br>
-                    <button class="btn login-btn btn-google js-login-social-google">
-                        Login Google
-                    </button>
-                    <div class="token">Resultado llamada: <br><span class="js-response-call"></span></div>
+                    <div class="input-container">
+                        <div class="input-label col-md-5 col-sm-10 col-xs-10">
+                            JWT Token User:
+                        </div>
+                        <div class="col-md-6 col-sm-10 col-xs-10 input">
+                            <input class="js-jwt-token form-control" type="text"/>
+                        </div>
+                    </div>
+                    <div class="buttons col-md-12">
+                        <button type="button"
+                                class="js-get-profile custom-button button-yellow" style="width:150px;">
+                            Send request
+                        </button>
+                    </div>
+                    <div class="profile">Resultado llamada: <br><span class="js-response-call"></span></div>
                 </div>
             </div>
         </div>
@@ -92,9 +66,9 @@
 </section>
 <script src="js/lib/jquery.js"></script>
 <script src="js/lib/bootstrap.js"></script>
-<script src="js/login.js"></script>
+<script src="js/getProfile.js"></script>
 <script>
-    login.init();
+    getProfile.init();
 </script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+.profile {
+    word-wrap: break-word;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+}
+
+.box-container .input-container {
+    height: 60px;
+}
