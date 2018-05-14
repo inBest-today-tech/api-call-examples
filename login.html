@@ -84,6 +84,19 @@
                     <button class="btn login-btn btn-google js-login-social-google">
                         Login Google
                     </button>
+                    <br>
+                    <div id='phone-auth' style="display: none;">
+                        
+                        <button id="sign-in-button" class="btn login-btn btn-google">
+                            Add phone to account
+                        </button>
+                        <input type="text" id='phone' name="">
+                        <br>
+                        <button id="sign-in-button2" class="btn login-btn btn-google">
+                            send code
+                        </button>
+                        <input type="text" id='code' name="">
+                    </div>
                     <div class="token">Resultado llamada: <br><span class="js-response-call"></span></div>
                 </div>
             </div>
@@ -93,6 +106,19 @@
 <script src="js/lib/jquery.js"></script>
 <script src="js/lib/bootstrap.js"></script>
 <script src="js/login.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAUWqQ1eAUkKxhwn75KJ68jWk4f5sPK4k0",
+    authDomain: "inbest-app-dev.firebaseapp.com",
+    databaseURL: "https://inbest-app-dev.firebaseio.com",
+    projectId: "inbest-app-dev",
+    storageBucket: "inbest-app-dev.appspot.com",
+    messagingSenderId: "668810797607"
+  };
+  firebase.initializeApp(config);
+</script>
 <script>
     login.init();
 </script>
