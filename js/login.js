@@ -1,12 +1,11 @@
 var login = (function () {
     var loginUrl = "https://inbest-app-dev.firebaseapp.com/api/v1/login";
-
     function doLoginFacebook(token) {
         console.log('do login facebook');
         var provider = new firebase.auth.FacebookAuthProvider();
-        const facebookCredential = provider.credential(token, null);
-        firebase.auth().signInWithCredential(facebookCredential).then((user) => {
-            var currentUser = user;
+        var facebookCredential = firebase.auth.FacebookAuthProvider.credential(token);
+        firebase.auth().signInAndRetrieveDataWithCredential(facebookCredential).then((credencial) => {
+            var currentUser = credencial.user;
             var hasPhoneAuth = false;
             currentUser.providerData.forEach((e,i) => {
                 if(e.providerId == 'phone'){
@@ -28,7 +27,8 @@ var login = (function () {
     // Merge authentications: the signed user with de credential given.
     function mergeAuths(credential){
         var prevUser = firebase.auth().currentUser;
-        firebase.auth().signInWithCredential(credential).then((user) => {
+        firebase.auth().signInAndRetrieveDataWithCredential(credential).then((credencial) => {
+            var user = credencial.user;
             return user.delete().then(function() {
                 console.log('step1')
                 // Link the OAuth Credential to original account
@@ -36,7 +36,7 @@ var login = (function () {
             }).then(function(data) {
                 console.log('step2')
                 // Sign in with the newly linked credential
-                return firebase.auth().signInWithCredential(credential);
+                return firebase.auth().signInAndRetrieveDataWithCredential(credential);
             }, function(data){
                 console.log('error',data)
             });
@@ -53,8 +53,8 @@ var login = (function () {
         //var prevUserPhone = firebase.auth().currentUser;
         var provider = new firebase.auth.GoogleAuthProvider();
         const googleCredential = provider.credential(token, null);
-        firebase.auth().signInWithCredential(googleCredential).then((user) => {
-            var currentUser = user;
+        firebase.auth().signInAndRetrieveDataWithCredential(googleCredential).then((credencial) => {
+            var currentUser = credencial.user;
             var hasPhoneAuth = false;
             currentUser.providerData.forEach((e,i) => {
                 if(e.providerId == 'phone'){
